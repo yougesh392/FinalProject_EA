@@ -6,6 +6,7 @@ import edu.miu.cs544.commentservice.service.ICommentService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class CommentController {
     private final ICommentService commentService;
 
     @PostMapping
-    public void save(@RequestBody CommentSaveDTO commentSaveDTO){
+    public void save(@RequestBody @Valid CommentSaveDTO commentSaveDTO){
         commentService.save(commentSaveDTO);
     }
 

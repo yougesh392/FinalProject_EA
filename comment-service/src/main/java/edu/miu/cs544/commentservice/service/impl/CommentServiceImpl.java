@@ -41,7 +41,12 @@ public class CommentServiceImpl implements ICommentService {
 
     @Override
     public void delete(Long id) {
-        commentRepository.deleteById(id);
+        try {
+            commentRepository.deleteById(id);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     @Override
