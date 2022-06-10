@@ -41,12 +41,10 @@ public class CommentServiceImpl implements ICommentService {
 
     @Override
     public void delete(Long id) {
-        try {
+        Optional<Comment> c = commentRepository.findById(id);
+        if (c.isPresent()){
             commentRepository.deleteById(id);
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
         }
-
     }
 
     @Override
