@@ -14,7 +14,7 @@ public class BlogController {
     BlogService blogService;
 
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<?> getAllPosts() {
         Blogs allBlogs = new Blogs(blogService.getblogs());
         return new ResponseEntity<Blogs>(allBlogs, HttpStatus.OK);
