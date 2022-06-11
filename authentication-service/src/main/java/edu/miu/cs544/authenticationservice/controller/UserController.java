@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/api/v1/users")
 @CrossOrigin(origins = "*")
@@ -25,7 +27,8 @@ public class UserController {
     }
 
     @PostMapping("/admin")
-    public void saveAdmin(@RequestBody UserSaveDTO h, @RequestHeader(name="Authorization") String token) throws Exception {
+    public void saveAdmin(@RequestBody UserSaveDTO h, @RequestHeader(name="Authorization") String token, Principal principal) throws Exception {
+        System.out.println(principal.getName());
 //        System.out.println(token);
 //        System.out.println(Helpers.decode(token));
 //
