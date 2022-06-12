@@ -14,7 +14,7 @@ public class MainApplication {
 	}
 
 	@Bean
-	public RestTemplate restTemplate() {
+	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
 }

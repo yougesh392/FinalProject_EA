@@ -1,10 +1,18 @@
 package com.blogginService.Blogging_Service.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class Blogging {
     @Id
     @GeneratedValue
@@ -12,27 +20,8 @@ public class Blogging {
     private String blogTitle;
     private String blogData;
 
-    public Blogging() {
-    }
-
-    public Blogging(String blogTile, String blogData) {
-        this.blogTitle = blogTile;
-        this.blogData = blogData;
-    }
-
-    public String getBlogTitle() {
-        return blogTitle;
-    }
-
-    public void setBlogTitle(String blogTitle) {
+    public Blogging(String blogTitle, String blogData) {
         this.blogTitle = blogTitle;
-    }
-
-    public String getBlogData() {
-        return blogData;
-    }
-
-    public void setBlogData(String blogData) {
         this.blogData = blogData;
     }
 }

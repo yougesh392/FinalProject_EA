@@ -3,7 +3,6 @@ package com.miu.MainApplication.model;
 import java.util.List;
 
 public class Post {
-
     private Long id;
     private String blogTitle;
     private String blogData;
@@ -48,5 +47,15 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", blogTitle='" + blogTitle + '\'' +
+                ", blogData='" + blogData + '\'' +
+                ", comments=" + comments +
+                '}';
     }
 }

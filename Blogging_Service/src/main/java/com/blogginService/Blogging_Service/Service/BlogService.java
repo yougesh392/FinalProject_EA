@@ -12,7 +12,7 @@ import java.util.Collection;
 public class BlogService {
     @Autowired
     private BlogDAO blogDAO;
-
+//implement model mapper for id.
     public void createBlog(String title, String data) {
         Blogging new_blog = new Blogging(title, data);
         blogDAO.save(new_blog);

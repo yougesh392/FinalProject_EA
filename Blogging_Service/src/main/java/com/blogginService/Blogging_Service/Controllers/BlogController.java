@@ -29,6 +29,14 @@ public class BlogController {
         blog = blogService.readBlogById(id);
         return new ResponseEntity<Blogging>(blog, HttpStatus.OK);
     }
+    public ResponseEntity<?> getPostByTitle(@PathVariable String title) {
+        Blogging blog;
+        if (blogService.readBlogByTitle(title) == null) {
+            return new ResponseEntity(new BlogErrorType("Post with Id: " + title + " not available"), HttpStatus.NOT_FOUND);
+        }
+        blog = blogService.readBlogByTitle(title);
+        return new ResponseEntity<Blogging>(blog, HttpStatus.OK);
+    }
 
     @PostMapping("/add")
     public ResponseEntity<?> addPost(@RequestBody Blogging blog) {
