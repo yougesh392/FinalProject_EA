@@ -1,42 +1,49 @@
 package com.miu.MainApplication.controller;
 
-import com.miu.MainApplication.DTO.PostDTO;
-import com.miu.MainApplication.Service.PostService;
-import com.miu.MainApplication.model.Comment;
-import com.miu.MainApplication.model.Post;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import com.miu.MainApplication.DTO.CommentDTO;
+import com.miu.MainApplication.DTO.CommentSaveDTO;
+import com.miu.MainApplication.Service.ICommentService;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/comments")
+@CrossOrigin
 public class CommentController {
-    private final RestTemplate restTemplate;
+    private final ICommentService commentService;
 
-    public CommentController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public CommentController(ICommentService commentService) {
+        this.commentService = commentService;
     }
 
-    @RequestMapping(value = "/comments/all")
-    public String getAllComments() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity<Comment> entity = new HttpEntity<>(headers);
-
-        return restTemplate.exchange("http://localhost:8088/comments", HttpMethod.GET, entity, String.class).getBody();
+    @GetMapping
+    public List<CommentDTO> getAllComments() {
+        return commentService.findAll();
     }
 
-    @RequestMapping(value = "/comments/save", method = RequestMethod.POST)
-    public String saveComments(@RequestBody Comment comment) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity<Comment> entity = new HttpEntity<Comment>(comment, headers);
-
-        return restTemplate.exchange("http://localhost:8088/comments", HttpMethod.POST, entity, String.class).getBody();
+    @PostMapping
+    public void saveComments(@RequestBody CommentSaveDTO commentSaveDTO) {
+        commentService.save(commentSaveDTO);
     }
 
+    @GetMapping("/{id}")
+    public CommentDTO betById(@PathVariable Long id) {
+        return commentService.getById(id);
+    }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        commentService.delete(id);
+    }
+
+    @GetMapping("/post/{id}")
+    public List<CommentDTO> getAllByPostId(@PathVariable Long id) {
+        return commentService.findAllByPostId(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Long id, @RequestBody CommentDTO commentDTO){
+        commentService.update(id, commentDTO);
+    }
 }
