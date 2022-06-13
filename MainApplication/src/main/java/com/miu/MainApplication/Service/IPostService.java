@@ -1,21 +1,22 @@
 package com.miu.MainApplication.Service;
 
 import com.miu.MainApplication.DTO.PostDTO;
+import com.miu.MainApplication.DTO.PostSaveDTO;
 import com.miu.MainApplication.model.Post;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface IPostService {
 
 
-    public PostDTO get(Long id);
+    PostDTO get(Long id);
 
-    public List<Post> getAll();
+    Collection<Post> getAll();
 
-    public void add(PostDTO p);
+    void add(PostSaveDTO p);
 
-    public void update(PostDTO p, Long id);
+    void update(PostDTO p, Long id);
 
-    public void delete(Long id);
+    void delete(Long id);
 
 }

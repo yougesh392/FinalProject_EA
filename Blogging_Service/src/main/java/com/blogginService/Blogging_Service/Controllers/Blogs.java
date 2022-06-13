@@ -3,11 +3,12 @@ package com.blogginService.Blogging_Service.Controllers;
 import com.blogginService.Blogging_Service.Model.Blogging;
 
 import java.util.Collection;
+import java.util.List;
 
 public class Blogs {
-    private Collection<Blogging> blogs;
+    private List<Blogging> blogs;
 
-    public Blogs(Collection<Blogging> blogs) {
+    public Blogs(List<Blogging> blogs) {
         this.blogs = blogs;
     }
 
@@ -15,7 +16,7 @@ public class Blogs {
         return blogs;
     }
 
-    public void setBlogs(Collection<Blogging> blogs) {
+    public void setBlogs(List<Blogging> blogs) {
         this.blogs = blogs;
     }
 }

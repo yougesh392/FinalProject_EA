@@ -1,22 +1,12 @@
 package com.miu.MainApplication.DTO;
 
-public class PostDTO {
+public class PostSaveDTO {
     private String postTitle;
     private String postData;
-    private Long Id;
 
-    public PostDTO(String postTitle, String postData,Long id) {
+    public PostSaveDTO(String postTitle, String postData) {
         this.postTitle = postTitle;
         this.postData = postData;
-        this.Id = id;
-    }
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
     }
 
     public String getPostTitle() {

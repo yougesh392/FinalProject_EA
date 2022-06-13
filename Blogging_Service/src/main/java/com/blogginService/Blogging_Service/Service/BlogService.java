@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class BlogService {
@@ -41,7 +42,7 @@ public class BlogService {
         blogDAO.delete(blog);
     }
 
-    public Collection<Blogging> getblogs() {
+    public List<Blogging> getblogs() {
         return blogDAO.findAll();
     }
 

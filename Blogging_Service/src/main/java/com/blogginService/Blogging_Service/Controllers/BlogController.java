@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/posts")
 public class BlogController {
@@ -15,9 +17,9 @@ public class BlogController {
 
 
     @GetMapping()
-    public ResponseEntity<?> getAllPosts() {
-        Blogs allBlogs = new Blogs(blogService.getblogs());
-        return new ResponseEntity<Blogs>(allBlogs, HttpStatus.OK);
+    public List<Blogging> getAllPosts() {
+//        Blogs allBlogs = new Blogs(blogService.getblogs());
+        return blogService.getblogs();
     }
 
     @GetMapping("/{id}")

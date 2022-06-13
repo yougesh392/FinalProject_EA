@@ -1,5 +1,7 @@
 package com.miu.MainApplication.model;
 
+import com.miu.MainApplication.DTO.CommentDTO;
+
 import java.util.List;
 
 public class Post {
@@ -7,14 +9,15 @@ public class Post {
     private String blogTitle;
     private String blogData;
 
-    private List<Comment> comments;
+    private List<CommentDTO> comments;
 
     public Post() {
     }
 
-    public Post(String blogTile, String blogData) {
+    public Post(String blogTile, String blogData,Long id) {
         this.blogTitle = blogTile;
         this.blogData = blogData;
+        this.id = id;
     }
 
     public String getBlogTitle() {
@@ -41,11 +44,11 @@ public class Post {
         this.id = id;
     }
 
-    public List<Comment> getComments() {
+    public List<CommentDTO> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<CommentDTO> comments) {
         this.comments = comments;
     }
 
