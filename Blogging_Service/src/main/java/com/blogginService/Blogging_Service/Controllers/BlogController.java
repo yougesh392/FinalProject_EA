@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/posts")
 public class BlogController {
@@ -15,9 +17,9 @@ public class BlogController {
 
 
     @GetMapping()
-    public ResponseEntity<?> getAllPosts() {
-        Blogs allBlogs = new Blogs(blogService.getblogs());
-        return new ResponseEntity<Blogs>(allBlogs, HttpStatus.OK);
+    public List<Blogging> getAllPosts() {
+//        Blogs allBlogs = new Blogs(blogService.getblogs());
+        return blogService.getblogs();
     }
 
     @GetMapping("/{id}")
@@ -27,6 +29,14 @@ public class BlogController {
             return new ResponseEntity(new BlogErrorType("Post with Id: " + id + " not available"), HttpStatus.NOT_FOUND);
         }
         blog = blogService.readBlogById(id);
+        return new ResponseEntity<Blogging>(blog, HttpStatus.OK);
+    }
+    public ResponseEntity<?> getPostByTitle(@PathVariable String title) {
+        Blogging blog;
+        if (blogService.readBlogByTitle(title) == null) {
+            return new ResponseEntity(new BlogErrorType("Post with Id: " + title + " not available"), HttpStatus.NOT_FOUND);
+        }
+        blog = blogService.readBlogByTitle(title);
         return new ResponseEntity<Blogging>(blog, HttpStatus.OK);
     }
 

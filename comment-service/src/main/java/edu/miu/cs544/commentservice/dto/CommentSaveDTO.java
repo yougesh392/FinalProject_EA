@@ -12,5 +12,5 @@ import lombok.Setter;
 public class CommentSaveDTO {
     private Long id;
     private String text;
-    private long postId;
+    private Long postId;
 }

@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/comments")
+@CrossOrigin
 public class CommentController {
 
     private final ICommentService commentService;

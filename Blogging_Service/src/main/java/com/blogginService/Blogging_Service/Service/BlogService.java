@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class BlogService {
     @Autowired
     private BlogDAO blogDAO;
-
+//implement model mapper for id.
     public void createBlog(String title, String data) {
         Blogging new_blog = new Blogging(title, data);
         blogDAO.save(new_blog);
@@ -41,7 +42,7 @@ public class BlogService {
         blogDAO.delete(blog);
     }
 
-    public Collection<Blogging> getblogs() {
+    public List<Blogging> getblogs() {
         return blogDAO.findAll();
     }
 
