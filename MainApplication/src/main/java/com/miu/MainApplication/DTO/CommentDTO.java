@@ -7,11 +7,12 @@ public class CommentDTO {
         private Long id;
         private String text;
         private LocalDateTime date;
-
-        public CommentDTO(Long id, String text, LocalDateTime date) {
+        private Long postId;
+        public CommentDTO(Long id, String text, LocalDateTime date, Long postId) {
                 this.id = id;
                 this.text = text;
                 this.date = date;
+                this.postId = postId;
         }
 
         public CommentDTO() {
@@ -39,5 +40,13 @@ public class CommentDTO {
 
         public void setDate(LocalDateTime date) {
                 this.date = date;
+        }
+
+        public Long getPostId() {
+                return postId;
+        }
+
+        public void setPostId(Long postId) {
+                this.postId = postId;
         }
 }

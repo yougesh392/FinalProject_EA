@@ -21,7 +21,7 @@ public class PostService implements IPostService {
 
     @Override
     public PostDTO get(Long id) {
-        return restTemplate.getForObject(postUrl, PostDTO.class, id);
+        return restTemplate.getForObject(postUrl,PostDTO.class,id);
     }
 
     @Override
@@ -37,9 +37,8 @@ public class PostService implements IPostService {
         String postMsgUrl = ptsUrl + "/add";
         restTemplate.postForLocation(postMsgUrl, p);
     }
-
     @Override
-    public void update(PostDTO p,Long id) {
+    public void update(PostSaveDTO p, Long id) {
         restTemplate.put(postUrl, p, id);
     }
 

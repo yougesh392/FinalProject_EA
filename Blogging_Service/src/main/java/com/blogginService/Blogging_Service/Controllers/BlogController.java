@@ -1,7 +1,7 @@
 package com.blogginService.Blogging_Service.Controllers;
 
 import com.blogginService.Blogging_Service.Model.Blogging;
-import com.blogginService.Blogging_Service.Service.BlogService;
+import com.blogginService.Blogging_Service.Service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +13,11 @@ import java.util.List;
 @RequestMapping("/posts")
 public class BlogController {
     @Autowired
-    BlogService blogService;
+    IBlogService blogService;
 
 
     @GetMapping()
     public List<Blogging> getAllPosts() {
-//        Blogs allBlogs = new Blogs(blogService.getblogs());
         return blogService.getblogs();
     }
 
@@ -29,8 +28,9 @@ public class BlogController {
             return new ResponseEntity(new BlogErrorType("Post with Id: " + id + " not available"), HttpStatus.NOT_FOUND);
         }
         blog = blogService.readBlogById(id);
-        return new ResponseEntity<Blogging>(blog, HttpStatus.OK);
+         return new ResponseEntity<Blogging>(blog, HttpStatus.OK);
     }
+
     public ResponseEntity<?> getPostByTitle(@PathVariable String title) {
         Blogging blog;
         if (blogService.readBlogByTitle(title) == null) {
@@ -57,12 +57,11 @@ public class BlogController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePost(@PathVariable Long id) {
-        Blogging blog = blogService.readBlogById(id);
-        if (blog == null) {
+        if (blogService.readBlogById(id) == null) {
             return new ResponseEntity(new BlogErrorType("Post with Id: " + id + " not available"), HttpStatus.NOT_FOUND);
         }
-        blogService.deleteBlog(blog.getBlogTitle());
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        blogService.deleteBlog(id);
+        return new ResponseEntity<>("Sucess",HttpStatus.NO_CONTENT);
     }
 
 }

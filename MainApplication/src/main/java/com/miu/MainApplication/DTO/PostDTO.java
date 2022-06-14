@@ -1,37 +1,41 @@
 package com.miu.MainApplication.DTO;
 
 public class PostDTO {
-    private String postTitle;
-    private String postData;
-    private Long Id;
+    private String blogTitle;
+    private String blogData;
+    private Long id;
 
-    public PostDTO(String postTitle, String postData,Long id) {
-        this.postTitle = postTitle;
-        this.postData = postData;
-        this.Id = id;
+    public PostDTO() {
     }
 
+    public PostDTO(Long id, String blogTitle, String blogData) {
+        this.blogTitle = blogTitle;
+        this.blogData = blogData;
+        this.id = id;
+    }
+
+
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
-    public String getPostTitle() {
-        return postTitle;
+    public String getBlogTitle() {
+        return blogTitle;
     }
 
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
+    public void setBlogTitle(String blogTitle) {
+        this.blogTitle = blogTitle;
     }
 
-    public String getPostData() {
-        return postData;
+    public String getBlogData() {
+        return blogData;
     }
 
-    public void setPostData(String postData) {
-        this.postData = postData;
+    public void setBlogData(String blogData) {
+        this.blogData = blogData;
     }
 }
