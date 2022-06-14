@@ -15,7 +15,7 @@ public interface IPostService {
 
     void add(PostSaveDTO p);
 
-    void update(PostDTO p, Long id);
+    void update(PostSaveDTO p, Long id);
 
     void delete(Long id);
 

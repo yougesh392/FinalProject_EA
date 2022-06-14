@@ -1,27 +1,30 @@
 package com.miu.MainApplication.DTO;
 
 public class PostSaveDTO {
-    private String postTitle;
-    private String postData;
 
-    public PostSaveDTO(String postTitle, String postData) {
-        this.postTitle = postTitle;
-        this.postData = postData;
+    private String blogTitle;
+    private String blogData;
+
+    public PostSaveDTO(String blogTitle, String blogData) {
+        this.blogTitle = blogTitle;
+        this.blogData = blogData;
     }
 
-    public String getPostTitle() {
-        return postTitle;
+    public String getBlogTitle() {
+        return blogTitle;
     }
 
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
+    public void setBlogTitle(String blogTitle) {
+        this.blogTitle = blogTitle;
     }
 
-    public String getPostData() {
-        return postData;
+    public String getBlogData() {
+        return blogData;
     }
 
-    public void setPostData(String postData) {
-        this.postData = postData;
+    public void setBlogData(String blogData) {
+        this.blogData = blogData;
     }
+
+
 }
