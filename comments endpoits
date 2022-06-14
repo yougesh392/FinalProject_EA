@@ -78,5 +78,60 @@ Get by post Id
 			"postId": 1
 		}
 	]
-	
 
+Posts Endpoints MainApplication
++++++++++++++
+create a Post
+
+@Post
+URL: http://localhost:8081/posts/create
+body:
+{
+    "blogTitle" : "Hello THis is a Test 2 Blog",
+    "blogData" : "This is test 2 Blog Data"
+}
++++++++++++
+Get all posts
+@Get
+URL: http://localhost:8081/posts/getAllPosts
+Return:
+[
+    {
+        "id": 1,
+        "blogTitle": "Hello THis is a Test 1st Blog",
+        "blogData": "This is test 1st Blog Data",
+        "comments": [
+            {
+                "id": 1,
+                "text": "this is a commit text",
+                "date": "2022-06-13T23:28:55.08261",
+                "postId": 1
+            },
+        ]
+    },
+]
++++++++++++++++
+Delete a Post
+
+@Delete
+URL: http://localhost:8081/posts/delete/{id}(give the id of a post)
+++++++++++
+Update a Post
+
+@PUT
+URL:http://localhost:8081/posts/update/{1}
+body:
+{
+    "blogTitle" : "Hello THis is a Test 1st Blog",
+    "blogData" : "This is test 1st Blog Data"
+}
+++++++++++++++++
+Get a Post
+@Get
+URL: http://localhost:8081/posts/get/{1}
+return:
+{
+       "blogTitle": "Hello THis is a Test 1st Blog",
+       "blogData": "This is test 1st Blog Data",
+       "id": 1
+}
