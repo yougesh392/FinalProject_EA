@@ -16,5 +16,5 @@ public class CommentDTO {
         private Long id;
         private String text;
         private LocalDateTime date;
-        private long postId;
+        private Long postId;
 }

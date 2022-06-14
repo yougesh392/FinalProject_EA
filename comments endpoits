@@ -1,0 +1,82 @@
+Comment Endpoints MainApplication
+
+GetAll: 
+	http://localhost:8081/comments
+	
+	Return Data 
+	[
+		{
+			"id": 1,
+			"text": "update 2",
+			"date": "2022-06-13T19:42:21.46086",
+			"postId": 1
+		},
+		{
+			"id": 2,
+			"text": "comment 20",
+			"date": "2022-06-13T19:56:18.937435",
+			"postId": 1
+		}
+	]
+
+
+GetById: 
+	http://localhost:8081/comments/{id}
+	
+	Return Data
+	{
+		"id": 1,
+		"text": "update 2",
+		"date": "2022-06-13T19:42:21.46086",
+		"postId": 1
+	} 
+	
+
+Delete by Id
+	http://localhost:8081/comments/{id}
+	
+	
+
+Post
+	http://localhost:8081/comments
+	
+	Requet Body
+	{
+		"text": "comment 20",
+		"postId": 1
+	}	
+	
+	
+Put
+	http://localhost:8081/comments/{id}
+	
+	Request Body
+	{
+		"id": 1,
+		"text": "new comment 2",
+		"date": "2021-06-13T19:42:21.46086",
+		"postId": 2
+	}
+	
+	
+
+Get by post Id
+	http://localhost:8081/comments/post/{postId}
+	
+	Return Data
+	[
+		{
+			"id": 1,
+			"text": "new comment 2",
+			"date": "2022-06-13T19:42:21.46086",
+			"postId": 1
+		},
+		{
+			"id": 2,
+			"text": "comment 20",
+			"date": "2022-06-13T19:56:18.937435",
+			"postId": 1
+		}
+	]
+	
+

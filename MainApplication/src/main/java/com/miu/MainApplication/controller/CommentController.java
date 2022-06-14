@@ -42,8 +42,8 @@ public class CommentController {
         return commentService.findAllByPostId(id);
     }
 
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody CommentDTO commentDTO){
-        commentService.update(id, commentDTO);
+    @PutMapping("/{postId}")
+    public void update(@PathVariable Long postId, @RequestBody CommentDTO commentDTO){
+        commentService.update(postId, commentDTO);
     }
 }
