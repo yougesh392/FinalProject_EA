@@ -1,9 +1,5 @@
 spring:
   application:
     name: Main-service
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8080/eureka/  #eureka port
-server:
-  port: 8081
+  config:
+    import: optional:configserver:http://localhost:8888
