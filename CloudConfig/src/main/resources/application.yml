@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-server-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yougesh392/Blog-Application.git
+          skipSslValidation: true
+          search-paths: /Application_Configurations
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+server:
+  port: 8888
