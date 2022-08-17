@@ -16,8 +16,8 @@ import java.util.Collection;
 public class PostService implements IPostService {
     @Autowired
     private RestTemplate restTemplate;
-    private final String postUrl = "http://localhost:8090/posts/{id}";
-    private final String ptsUrl = "http://localhost:8090/posts";
+    private final String postUrl = "http://Comment-service/posts/{id}";
+    private final String ptsUrl = "http://Blogging-service/posts";
 
     @Override
     public PostDTO get(Long id) {

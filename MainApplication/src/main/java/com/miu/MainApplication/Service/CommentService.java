@@ -15,7 +15,7 @@ public class CommentService implements ICommentService {
 
     private final RestTemplate restTemplate;
 
-    private final String commentURL = "http://localhost:8088/comments";
+    private final String commentURL = "http://COMMENT-SERVICE/comments";
 
     public CommentService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
